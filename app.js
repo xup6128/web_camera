@@ -1,5 +1,6 @@
 const video = document.querySelector("#videoElement");
 const image = document.getElementById("image");
+const downloadButton = document.getElementById("downloadButton");
 
 this.startStream();
 
@@ -18,6 +19,10 @@ image.addEventListener("gesturestart", gestureStart);
 image.addEventListener("gestureend", gestureEnd);
 image.addEventListener("gesturechange", gestureChange);
 
+downloadButton.addEventListener("click", function () {
+    downloadContainerAsImage();
+});
+
 function startStream() {
     if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
@@ -29,6 +34,17 @@ function startStream() {
                 console.log("Something went wrong!");
             });
     }
+}
+
+function downloadContainerAsImage() {
+    const container = document.getElementById("container");
+
+    html2canvas(container).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "container.png";
+        link.href = canvas.toDataURL();
+        link.click();
+    });
 }
 
 function dragStart(e) {
