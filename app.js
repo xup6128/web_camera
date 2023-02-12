@@ -4,12 +4,10 @@ const image = document.getElementById("image");
 this.startStream();
 
 let isDragging = false;
-let currentX;
-let currentY;
 let initialX;
 let initialY;
-let xOffset = 0;
-let yOffset = 0;
+let imageWidth = image.clientWidth;
+let imageHeight = image.clientHeight;
 let originalScale = 1;
 let newScale = 1;
 
@@ -34,29 +32,24 @@ function startStream() {
 }
 
 function dragStart(e) {
-    initialX = e.touches[0].clientX - xOffset;
-    initialY = e.touches[0].clientY - yOffset;
-
+    initialX = e.touches[0].clientX;
+    initialY = e.touches[0].clientY;
     isDragging = true;
 }
 
 function dragEnd(e) {
-    initialX = currentX;
-    initialY = currentY;
-
     isDragging = false;
 }
 
 function drag(e) {
     if (isDragging) {
         e.preventDefault();
-        currentX = e.touches[0].clientX - initialX;
-        currentY = e.touches[0].clientY - initialY;
+        let currentX = e.touches[0].clientX;
+        let currentY = e.touches[0].clientY;
 
-        xOffset = currentX;
-        yOffset = currentY;
-
-        setTranslate(currentX, currentY, image);
+        let xOffset = currentX - (initialX + imageWidth / 2);
+        let yOffset = currentY - (initialY + imageHeight);
+        setTranslate(xOffset, yOffset, image);
     }
 }
 
