@@ -4,7 +4,7 @@
 <head>
     <title>Camera App</title>
     <style>
-        body{
+        body {
             margin: 0;
             background-color: black;
         }
@@ -14,8 +14,9 @@
         }
 
         #videoElement {
-            min-width: 100%;
-            min-height: 100%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
         }
 
         #image {
@@ -43,7 +44,7 @@
     <div id="container">
         <video autoplay="true" id="videoElement" playsinline>
         </video>
-        <img id="image" src="IMG_6393.PNG" width="75%"/>
+        <img id="image" src="IMG_6393.PNG" width="75%" />
     </div>
     <button id="downloadButton"></button>
     <script src="app.js"></script>
