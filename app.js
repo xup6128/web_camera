@@ -48,7 +48,8 @@ function downloadContainerAsImage() {
 }
 
 function downloadContainerAsImage2() {
-    const video = document.getElementById("container");
+    const video = document.getElementById("videoElement");
+    const image = document.getElementById("image");
 
     // 創建 canvas 元素
     var canvas = document.createElement('canvas');
@@ -60,15 +61,16 @@ function downloadContainerAsImage2() {
 
     // 捕捉畫面並將其渲染到 canvas 上
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, container.offsetWidth / 2 - image.width / 2, container.offsetHeight / 2 - image.height / 2, image.width, image.height);
 
     // 將 canvas 轉換為圖像
-    var image = new Image();
-    image.src = canvas.toDataURL('image/jpeg');
+    var savingImage = new Image();
+    savingImage.src = canvas.toDataURL('Rotary_Light_Up/jpeg');
 
     // 創建一個下載鏈接，將圖像下載到手機本地儲存空間中
     var link = document.createElement('a');
     link.download = 'video-screenshot.jpg';
-    link.href = image.src;
+    link.href = savingImage.src;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
