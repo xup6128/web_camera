@@ -12,15 +12,15 @@ let imageHeight = image.clientHeight;
 let originalScale = 1;
 let newScale = 1;
 
-image.addEventListener("touchstart", dragStart);
-image.addEventListener("touchend", dragEnd);
-image.addEventListener("touchmove", drag);
-image.addEventListener("gesturestart", gestureStart);
-image.addEventListener("gestureend", gestureEnd);
-image.addEventListener("gesturechange", gestureChange);
+// image.addEventListener("touchstart", dragStart);
+// image.addEventListener("touchend", dragEnd);
+// image.addEventListener("touchmove", drag);
+// image.addEventListener("gesturestart", gestureStart);
+// image.addEventListener("gestureend", gestureEnd);
+// image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage();
+    downloadContainerAsImage2();
 });
 
 function startStream() {
@@ -45,6 +45,33 @@ function downloadContainerAsImage() {
         link.href = canvas.toDataURL();
         link.click();
     });
+}
+
+function downloadContainerAsImage2() {
+    const video = document.getElementById("container");
+
+    // 創建 canvas 元素
+    var canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    // 獲取 canvas 的上下文
+    var ctx = canvas.getContext('2d');
+
+    // 捕捉畫面並將其渲染到 canvas 上
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // 將 canvas 轉換為圖像
+    var image = new Image();
+    image.src = canvas.toDataURL('image/jpeg');
+
+    // 創建一個下載鏈接，將圖像下載到手機本地儲存空間中
+    var link = document.createElement('a');
+    link.download = 'video-screenshot.jpg';
+    link.href = image.src;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function dragStart(e) {
