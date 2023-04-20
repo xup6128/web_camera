@@ -61,7 +61,7 @@ function downloadContainerAsImage2() {
 
     // 捕捉畫面並將其渲染到 canvas 上
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, container.offsetWidth / 2 - image.width / 2, container.offsetHeight / 2 - image.height / 2, image.width, image.height);
+    ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.height / 2, image.width, image.height);
 
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
