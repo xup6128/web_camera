@@ -57,7 +57,6 @@ function downloadContainerAsImage() {
         link.download = "光耀扶輪.png";
         link.href = canvas.toDataURL();
         link.click();
-        window.open(canvas.toDataURL('image/png'));
     });
 }
 
