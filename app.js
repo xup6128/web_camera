@@ -20,7 +20,7 @@ let newScale = 1;
 // image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage2();
+    downloadContainerAsImage();
 });
 
 window.addEventListener("orientationchange", function () {
