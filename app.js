@@ -50,11 +50,14 @@ function startStream() {
 function downloadContainerAsImage() {
     const container = document.getElementById("container");
 
-    html2canvas(container).then(canvas => {
+    html2canvas(container, {
+        height: container.offsetHeight - 5,
+    }).then(canvas => {
         const link = document.createElement("a");
         link.download = "光耀扶輪.png";
         link.href = canvas.toDataURL();
         link.click();
+        window.open(canvas.toDataURL('image/png'));
     });
 }
 
