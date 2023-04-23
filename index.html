@@ -25,6 +25,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 40vw;
         }
 
         #downloadButton {
@@ -38,6 +39,10 @@
             border-radius: 50%;
             background-color: white;
         }
+
+        .landscape{
+            width: 25vw !important;
+        }
     </style>
 </head>
 
@@ -45,7 +50,7 @@
     <div id="container">
         <video autoplay="true" id="videoElement" playsinline>
         </video>
-        <img id="image" src="IMG_6393.PNG" width="40%" />
+        <img id="image" src="IMG_6393.PNG" />
     </div>
     <button id="downloadButton"></button>
     <script src="app.js"></script>

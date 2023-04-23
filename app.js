@@ -23,6 +23,15 @@ downloadButton.addEventListener("click", function () {
     downloadContainerAsImage();
 });
 
+window.addEventListener("orientationchange", function () {
+    var orientation = window.orientation;
+    if (orientation === 90 || orientation === -90) {
+        document.getElementById("image").classList.add("landscape");
+    } else {
+        document.getElementById("image").classList.remove("landscape");
+    }
+});
+
 function startStream() {
     if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
