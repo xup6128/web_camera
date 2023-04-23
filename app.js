@@ -26,9 +26,11 @@ downloadButton.addEventListener("click", function () {
 window.addEventListener("orientationchange", function () {
     var orientation = window.orientation;
     if (orientation === 90 || orientation === -90) {
-        document.getElementById("image").classList.add("landscape");
+        document.getElementById("image").classList.add("landscapeImg");
+        document.getElementById("downloadButton").classList.add("landscapeBtn");
     } else {
-        document.getElementById("image").classList.remove("landscape");
+        document.getElementById("image").classList.remove("landscapeImg");
+        document.getElementById("downloadButton").classList.remove("landscapeBtn");
     }
 });
 
@@ -54,35 +56,6 @@ function downloadContainerAsImage() {
         link.href = canvas.toDataURL();
         link.click();
     });
-}
-
-function downloadContainerAsImage2() {
-    const video = document.getElementById("videoElement");
-    const image = document.getElementById("image");
-
-    // 創建 canvas 元素
-    var canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-
-    // 獲取 canvas 的上下文
-    var ctx = canvas.getContext('2d');
-
-    // 捕捉畫面並將其渲染到 canvas 上
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.height / 2, image.width, image.height);
-
-    // 將 canvas 轉換為圖像
-    var savingImage = new Image();
-    savingImage.src = canvas.toDataURL('video-screenshot/jpeg');
-
-    // 創建一個下載鏈接，將圖像下載到手機本地儲存空間中
-    var link = document.createElement('a');
-    link.download = 'Rotary_Light_Up.jpg';
-    link.href = savingImage.src;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
 }
 
 function dragStart(e) {
