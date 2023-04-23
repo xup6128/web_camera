@@ -20,7 +20,7 @@ let newScale = 1;
 // image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage2();
+    downloadContainerAsImage();
 });
 
 function startStream() {
@@ -65,11 +65,11 @@ function downloadContainerAsImage2() {
 
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
-    savingImage.src = canvas.toDataURL('Rotary_Light_Up/jpeg');
+    savingImage.src = canvas.toDataURL('video-screenshot/jpeg');
 
     // 創建一個下載鏈接，將圖像下載到手機本地儲存空間中
     var link = document.createElement('a');
-    link.download = 'video-screenshot.jpg';
+    link.download = 'Rotary_Light_Up.jpg';
     link.href = savingImage.src;
     document.body.appendChild(link);
     link.click();
