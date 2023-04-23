@@ -51,7 +51,7 @@ function downloadContainerAsImage() {
     const container = document.getElementById("container");
 
     html2canvas(container, {
-        height: container.offsetHeight - 5,
+        height: container.offsetHeight - 0,
     }).then(canvas => {
         const link = document.createElement("a");
         link.download = "光耀扶輪.png";
