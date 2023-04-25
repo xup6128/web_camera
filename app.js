@@ -88,9 +88,7 @@ function downloadContainerAsImage2() {
     var link = document.createElement('a');
     link.download = 'video-screenshot.jpg';
     link.href = savingImage.src;
-    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
 }
 
 function dragStart(e) {
