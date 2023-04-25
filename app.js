@@ -20,7 +20,7 @@ let newScale = 1;
 // image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage2();
+    downloadContainerAsImage();
 });
 
 let vw = 0.4;
@@ -52,17 +52,6 @@ function startStream() {
 }
 
 function downloadContainerAsImage() {
-    const container = document.getElementById("container");
-
-    html2canvas(container).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "光耀扶輪.png";
-        link.href = canvas.toDataURL();
-        link.click();
-    });
-}
-
-function downloadContainerAsImage2() {
     const video = document.getElementById("videoElement");
     const image = document.getElementById("image");
 
