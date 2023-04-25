@@ -50,10 +50,7 @@ function startStream() {
 function downloadContainerAsImage() {
     const container = document.getElementById("container");
 
-    html2canvas(container, {
-        width: container.width, // 設定截圖寬度為目前視窗的寬度
-        height: container.height // 設定截圖高度為目前視窗的高度
-    }).then(canvas => {
+    html2canvas(container).then(canvas => {
         const link = document.createElement("a");
         link.download = "光耀扶輪.png";
         link.href = canvas.toDataURL();
