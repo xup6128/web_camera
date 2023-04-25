@@ -20,7 +20,7 @@ let newScale = 1;
 // image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage();
+    downloadContainerAsImage2();
 });
 
 let vw = 0.4;
@@ -78,7 +78,7 @@ function downloadContainerAsImage2() {
 
     // 捕捉畫面並將其渲染到 canvas 上
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, canvas.width * (1 - vw), (canvas.height - imageHeight) / 2, canvas.width * vw, imageHeight);
+    ctx.drawImage(image, canvas.width * (1 - vw) / 2, (canvas.height - imageHeight) / 2, canvas.width * vw, imageHeight);
 
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
