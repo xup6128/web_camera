@@ -23,14 +23,18 @@ downloadButton.addEventListener("click", function () {
     downloadContainerAsImage();
 });
 
+let vw = 0.4;
+
 window.addEventListener("orientationchange", function () {
     var orientation = window.orientation;
     if (orientation === 90 || orientation === -90) {
         document.getElementById("image").classList.add("landscapeImg");
         document.getElementById("downloadButton").classList.add("landscapeBtn");
+        vw = 0.25;
     } else {
         document.getElementById("image").classList.remove("landscapeImg");
         document.getElementById("downloadButton").classList.remove("landscapeBtn");
+        vw = 0.4;
     }
 });
 
@@ -70,9 +74,11 @@ function downloadContainerAsImage2() {
     // 獲取 canvas 的上下文
     var ctx = canvas.getContext('2d');
 
+    let imageHeight = canvas.width * vw / image.width * image.height;
+
     // 捕捉畫面並將其渲染到 canvas 上
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, 0, 0, image.width, image.height);
+    ctx.drawImage(image, canvas.width * (1 - vw), (canvas.height - imageHeight) / 2, canvas.width * vw, imageHeight);
 
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
