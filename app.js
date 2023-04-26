@@ -63,11 +63,12 @@ function downloadContainerAsImage() {
     // 獲取 canvas 的上下文
     var ctx = canvas.getContext('2d');
 
-    let imageHeight = canvas.width * vw / image.width * image.height;
+    const imageWidth = canvas.width * vw * 0.9;
+    const imageHeight = canvas.width * vw / image.width * image.height * 0.9;
 
     // 捕捉畫面並將其渲染到 canvas 上
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, canvas.width * (1 - vw) / 2, (canvas.height - imageHeight) / 2, canvas.width * vw, imageHeight);
+    ctx.drawImage(image, (canvas.width - imageWidth) / 2, (canvas.height - imageHeight) / 2, imageWidth, imageHeight);
 
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
