@@ -3,6 +3,8 @@ const image = document.getElementById("image");
 const downloadButton = document.getElementById("downloadButton");
 
 this.startStream();
+const userEmail = prompt("請輸入您的電子郵件地址:");
+
 
 let isDragging = false;
 let initialX;
@@ -20,8 +22,30 @@ let newScale = 1;
 // image.addEventListener("gesturechange", gestureChange);
 
 downloadButton.addEventListener("click", function () {
-    downloadContainerAsImage();
+    const canvas = createCanvas();
+    downloadImage(canvas);
+    sendEmail(canvas);
 });
+
+function sendEmail(canvas) {
+    // 定義郵件參數
+    const templateParams = {
+        to_email: userEmail,
+        from_name: '扶輪社',
+        subject: '合照',
+        html: `<img src="${canvas.toDataURL('image/jpeg', 0.0001)}" alt="Embedded Image`,
+    };
+
+    if (userEmail) {
+
+        emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams)
+            .then(function (response) {
+                console.log("郵件成功發送！", response.status, response.text);
+            }, function (error) {
+                console.log("郵件發送失敗...", error);
+            });
+    }
+}
 
 let vw = 0.4;
 
@@ -51,7 +75,7 @@ function startStream() {
     }
 }
 
-function downloadContainerAsImage() {
+function createCanvas() {
     const video = document.getElementById("videoElement");
     const image = document.getElementById("image");
 
@@ -70,6 +94,10 @@ function downloadContainerAsImage() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, (canvas.width - imageWidth) / 2, (canvas.height - imageHeight) / 2, imageWidth, imageHeight);
 
+    return canvas;
+}
+
+function downloadImage(canvas) {
     // 將 canvas 轉換為圖像
     var savingImage = new Image();
     savingImage.src = canvas.toDataURL('Rotary_Light_Up/jpeg');
