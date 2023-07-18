@@ -104,7 +104,7 @@ function downloadImage(canvas) {
 
     // 創建一個下載鏈接，將圖像下載到手機本地儲存空間中
     var link = document.createElement('a');
-    link.download = 'video-screenshot.jpg';
+    link.download = '光耀扶綸.jpg';
     link.href = savingImage.src;
     link.click();
 }
