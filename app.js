@@ -31,9 +31,9 @@ function sendEmail(canvas) {
     // 定義郵件參數
     const templateParams = {
         to_email: userEmail,
-        from_name: '扶輪社',
-        subject: '合照',
-        html: `<img src="${canvas.toDataURL('image/jpeg', 0.0001)}" alt="Embedded Image`,
+        from_name: '光耀扶輪',
+        subject: 'AR 合照',
+        html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
     };
 
     if (userEmail) {
