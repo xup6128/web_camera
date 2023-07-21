@@ -1,6 +1,7 @@
 const video = document.querySelector("#videoElement");
 const image = document.getElementById("image");
 const downloadButton = document.getElementById("downloadButton");
+const errorDisplay = document.getElementById("errorDisplay");
 
 this.startStream();
 const userEmail = prompt("請輸入您的電子郵件地址:");
@@ -33,8 +34,7 @@ function sendEmail(canvas) {
         to_email: userEmail,
         from_name: '光耀扶輪',
         subject: 'AR 合照',
-        // html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
-        html: `<p>123</p>`,
+        html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
     };
 
     if (userEmail) {
@@ -42,8 +42,10 @@ function sendEmail(canvas) {
         emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams)
             .then(function (response) {
                 console.log("郵件成功發送！", response.status, response.text);
+                errorDisplay.innerHTML = JSON.stringify(response, null, 2)
             }, function (error) {
                 console.log("郵件發送失敗...", error);
+                errorDisplay.innerHTML = JSON.stringify(error, null, 2)
             });
     }
 }
