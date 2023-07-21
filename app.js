@@ -33,7 +33,8 @@ function sendEmail(canvas) {
         to_email: userEmail,
         from_name: '光耀扶輪',
         subject: 'AR 合照',
-        html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
+        // html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
+        html: `<p>123</p>`,
     };
 
     if (userEmail) {
