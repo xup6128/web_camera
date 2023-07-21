@@ -39,7 +39,7 @@ function sendEmail(canvas) {
 
     if (userEmail) {
 
-        emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams)
+        emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams, "SXpe5bXZFtpUlLK6W")
             .then(function (response) {
                 console.log("郵件成功發送！", response.status, response.text);
                 errorDisplay.innerHTML = "郵件成功發送！" + JSON.stringify(response, null, 2)
