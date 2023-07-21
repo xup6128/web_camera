@@ -42,10 +42,10 @@ function sendEmail(canvas) {
         emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams)
             .then(function (response) {
                 console.log("郵件成功發送！", response.status, response.text);
-                errorDisplay.innerHTML = JSON.stringify(response, null, 2)
+                errorDisplay.innerHTML = "郵件成功發送！" + JSON.stringify(response, null, 2)
             }, function (error) {
                 console.log("郵件發送失敗...", error);
-                errorDisplay.innerHTML = JSON.stringify(error, null, 2)
+                errorDisplay.innerHTML = "郵件發送失敗..." + JSON.stringify(error, null, 2)
             });
     }
 }
