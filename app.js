@@ -4,7 +4,7 @@ const downloadButton = document.getElementById("downloadButton");
 const errorDisplay = document.getElementById("errorDisplay");
 
 this.startStream();
-const userEmail = prompt("請輸入您的電子郵件地址:");
+// const userEmail = prompt("請輸入您的電子郵件地址:");
 
 
 let isDragging = false;
@@ -25,7 +25,7 @@ let newScale = 1;
 downloadButton.addEventListener("click", function () {
     const canvas = createCanvas();
     downloadImage(canvas);
-    sendEmail(canvas);
+    // sendEmail(canvas);
 });
 
 function sendEmail(canvas) {
