@@ -3,6 +3,10 @@
 
 <head>
     <title>Camera App</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
         body {
             margin: 0;
@@ -42,10 +46,9 @@
 
         #errorDisplay {
             position: absolute;
-            top: 80%;
-            left: 15%;
-            transform: translate(-50%, -50%);
-            width: 150px;
+            bottom: 0;
+            right: 0;
+            width: auto;
             background-color: gainsboro;
         }
 
@@ -68,17 +71,10 @@
         </video>
         <img id="image" src="IMG_6393.PNG" />
         <button id="downloadButton"></button>
-        <div id="errorDisplay">Console錯誤訊息</div>
+        <div id="errorDisplay">console</div>
     </div>
+    <script src="email.min.js"></script>
     <script src="app.js"></script>
-    <script src="html2canvas.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("SXpe5bXZFtpUlLK6W");
-        })();
-    </script>
 </body>
 
 </html>

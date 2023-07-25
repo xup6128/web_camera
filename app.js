@@ -4,6 +4,8 @@ const downloadButton = document.getElementById("downloadButton");
 const errorDisplay = document.getElementById("errorDisplay");
 
 this.startStream();
+emailjs.init("SXpe5bXZFtpUlLK6W");
+const userEmail = 'xup6910615@gmail.com';
 // const userEmail = prompt("請輸入您的電子郵件地址:");
 
 
@@ -25,7 +27,7 @@ let newScale = 1;
 downloadButton.addEventListener("click", function () {
     const canvas = createCanvas();
     downloadImage(canvas);
-    // sendEmail(canvas);
+    sendEmail(canvas);
 });
 
 function sendEmail(canvas) {
@@ -34,7 +36,7 @@ function sendEmail(canvas) {
         to_email: userEmail,
         from_name: '光耀扶輪',
         subject: 'AR 合照',
-        html: `<p>123</p>`,
+        html: `<img src="${canvas.toDataURL('image/jpeg', 0.1)}" alt="Embedded Image`,
     };
 
     if (userEmail) {
