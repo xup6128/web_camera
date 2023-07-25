@@ -4,7 +4,6 @@ const downloadButton = document.getElementById("downloadButton");
 const errorDisplay = document.getElementById("errorDisplay");
 
 this.startStream();
-emailjs.init("SXpe5bXZFtpUlLK6W");
 const userEmail = 'xup6910615@gmail.com';
 // const userEmail = prompt("請輸入您的電子郵件地址:");
 
