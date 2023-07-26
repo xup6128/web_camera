@@ -27,8 +27,8 @@ downloadButton.addEventListener("click", function buttonClick(event) {
     const canvas = createCanvas();
     event.preventDefault();
 
-    // downloadImage(canvas);
     sendEmail(canvas);
+    downloadImage(canvas);
 })
 
 
@@ -45,11 +45,9 @@ function sendEmail(canvas) {
 
         emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams, "SXpe5bXZFtpUlLK6W")
             .then(function (response) {
-                console.log("郵件成功發送！", response.status, response.text);
-                errorDisplay.innerHTML = "郵件成功發送！" + JSON.stringify(response, null, 2)
+                errorDisplay.innerHTML = "郵件成功發送！"
             }, function (error) {
-                console.log("郵件發送失敗...", error);
-                errorDisplay.innerHTML = "郵件發送失敗..." + JSON.stringify(error, null, 2)
+                errorDisplay.innerHTML = "郵件發送失敗..."
             });
     }
 }
