@@ -23,11 +23,14 @@ let newScale = 1;
 // image.addEventListener("gestureend", gestureEnd);
 // image.addEventListener("gesturechange", gestureChange);
 
-downloadButton.addEventListener("click", function () {
+downloadButton.addEventListener("click", function buttonClick(event) {
     const canvas = createCanvas();
-    downloadImage(canvas);
+    event.preventDefault();
+
+    // downloadImage(canvas);
     sendEmail(canvas);
-});
+})
+
 
 function sendEmail(canvas) {
     // 定義郵件參數
