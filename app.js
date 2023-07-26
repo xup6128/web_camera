@@ -4,8 +4,7 @@ const downloadButton = document.getElementById("downloadButton");
 const errorDisplay = document.getElementById("errorDisplay");
 
 this.startStream();
-const userEmail = 'xup6910615@gmail.com';
-// const userEmail = prompt("請輸入您的電子郵件地址:");
+const userEmail = prompt("請輸入您的電子郵件地址:");
 
 
 let isDragging = false;
@@ -28,7 +27,6 @@ downloadButton.addEventListener("click", function buttonClick(event) {
     event.preventDefault();
 
     sendEmail(canvas);
-    downloadImage(canvas);
 })
 
 
@@ -46,6 +44,7 @@ function sendEmail(canvas) {
         emailjs.send("service_xr70ero", "template_rzhk0bq", templateParams, "SXpe5bXZFtpUlLK6W")
             .then(function (response) {
                 errorDisplay.innerHTML = "郵件成功發送！"
+                downloadImage(canvas);
             }, function (error) {
                 errorDisplay.innerHTML = "郵件發送失敗..."
             });
